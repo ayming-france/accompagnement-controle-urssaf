@@ -310,6 +310,67 @@
     .slide.active .requirements-box li:nth-child(2) { animation-delay: 0.25s; }
     .slide.active .requirements-box li:nth-child(3) { animation-delay: 0.35s; }
     .slide.active .requirements-box li:nth-child(4) { animation-delay: 0.45s; }
+
+    /* ===== IMPLANTATION (ANCRAGE + INTERNATIONAL) ===== */
+    .ancrage-layout {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .ancrage-text {
+      flex: 0 0 42%;
+    }
+
+    .ancrage-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-gray);
+      text-align: left;
+    }
+
+    .ancrage-text p strong {
+      color: var(--text-dark);
+    }
+
+    .ancrage-map {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ancrage-map img {
+      height: 540px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .implantation-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .implantation-na {
+      height: 540px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .implantation-eu {
+      height: 540px;
+      width: auto;
+      object-fit: contain;
+    }
+
   </style>
 </head>
 <body>
@@ -334,13 +395,14 @@
       <div class="nav-item" data-slide="5"><span class="nav-item-number">06</span>Introduction</div>
       <div class="nav-item" data-slide="6"><span class="nav-item-number">07</span>Valeur</div>
       <div class="nav-item" data-slide="11"><span class="nav-item-number">08</span>Preuves</div>
-      <div class="nav-item" data-slide="12"><span class="nav-item-number">09</span>Questions</div>
-      <div class="nav-item" data-slide="13"><span class="nav-item-number">10</span>Processus</div>
-      <div class="nav-item" data-slide="14"><span class="nav-item-number">11</span>Démarrage</div>
+      <div class="nav-item" data-slide="12"><span class="nav-item-number">09</span>Implantation</div>
+      <div class="nav-item" data-slide="14"><span class="nav-item-number">10</span>Questions</div>
+      <div class="nav-item" data-slide="15"><span class="nav-item-number">11</span>Processus</div>
+      <div class="nav-item" data-slide="16"><span class="nav-item-number">12</span>Démarrage</div>
     </div>
   </nav>
 
-  <div class="slide-counter"><span class="current">1</span>/15</div>
+  <div class="slide-counter"><span class="current">1</span>/17</div>
 
   <main class="presentation">
 
@@ -362,7 +424,7 @@
     <section class="slide" data-chapter="insight">
       <div class="layout-split">
         <div class="content-side">
-          <h1 class="slide-title">Contrôle URSSAF :<br>plus de 9 sur 10 aboutissent à un redressement</h1>
+          <h1 class="slide-title">Plus de 9 contr&ocirc;les URSSAF sur 10 aboutissent &agrave; un redressement</h1>
 
           <p class="content-paragraph">
             Le contrôle URSSAF est une véritable <strong>angoisse pour les entreprises</strong>. On redoute de se faire épingler, même quand on pense être en règle. Ce n'est plus une question de « si » mais de « quand ». En moyenne, une entreprise est contrôlée <strong>tous les 3 à 5 ans</strong>.
@@ -421,7 +483,7 @@
     </section>
 
     <!-- SLIDE 3: ALTERNATIVES - Table -->
-    <section class="slide" data-chapter="comparison">
+    <section class="slide" data-chapter="alternatives">
       <div class="slide-inner">
         <h1 class="slide-title">Chaque approche a ses limites</h1>
         <div class="table-container">
@@ -451,7 +513,7 @@
     </section>
 
     <!-- SLIDE 4: MONDE IDÉAL (6 items, 3x2) -->
-    <section class="slide" data-chapter="ideal">
+    <section class="slide" data-chapter="monde-ideal">
       <div class="slide-inner">
         <h1 class="slide-title">La solution idéale face<br>au contrôle URSSAF</h1>
         <div class="ideal-grid-4">
@@ -510,7 +572,7 @@
     </section>
 
     <!-- SLIDE 6: VALEUR OVERVIEW (4 Attributs, 2x2) -->
-    <section class="slide" data-chapter="value">
+    <section class="slide" data-chapter="valeur">
       <div class="slide-inner">
         <h1 class="slide-title">Ce qu'Ayming vous apporte</h1>
         <div class="feature-grid-4">
@@ -548,7 +610,7 @@
     </section>
 
     <!-- SLIDE 7: VALUE DETAIL 1 - Formation et préparation -->
-    <section class="slide" data-chapter="value">
+    <section class="slide" data-chapter="valeur-1">
       <div class="value-detail-layout">
         <div class="value-detail-content">
           <h2>Formation et préparation des équipes en amont du contrôle</h2>
@@ -565,7 +627,7 @@
     </section>
 
     <!-- SLIDE 8: VALUE DETAIL 2 - Accompagnement pendant -->
-    <section class="slide" data-chapter="value">
+    <section class="slide" data-chapter="valeur-2">
       <div class="value-detail-layout">
         <div class="value-detail-content">
           <h2>Accompagnement des équipes pendant le contrôle</h2>
@@ -582,7 +644,7 @@
     </section>
 
     <!-- SLIDE 9: VALUE DETAIL 3 - Études financières -->
-    <section class="slide" data-chapter="value">
+    <section class="slide" data-chapter="valeur-3">
       <div class="value-detail-layout">
         <div class="value-detail-content">
           <h2>Études financières des observations et redressements</h2>
@@ -599,7 +661,7 @@
     </section>
 
     <!-- SLIDE 10: VALUE DETAIL 4 - Plan d'action correctif -->
-    <section class="slide" data-chapter="value">
+    <section class="slide" data-chapter="valeur-4">
       <div class="value-detail-layout">
         <div class="value-detail-content">
           <h2>Plan d'action correctif post-contrôle</h2>
@@ -615,7 +677,7 @@
     </section>
 
     <!-- SLIDE 11: PREUVES (1 testimonial, split layout) -->
-    <section class="slide" data-chapter="proof">
+    <section class="slide" data-chapter="preuves">
       <div class="slide-inner">
         <h1 class="slide-title">Ils nous font confiance</h1>
         <div class="testimonial-split">
@@ -637,7 +699,39 @@
       <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
     </section>
 
-    <!-- SLIDE 12: QUESTIONS (4 FAQ cards) -->
+    <!-- SLIDE 12: IMPLANTATION FRANCE -->
+    <section class="slide" data-chapter="implantation">
+      <div class="slide-inner">
+        <div class="ancrage-layout">
+          <div class="ancrage-text">
+            <h1 class="slide-title" style="text-align: left; margin-bottom: 28px;">Un fort ancrage <strong>en France</strong>...</h1>
+            <p>Nos &eacute;quipes locales accompagnent au quotidien nos clients dans leur d&eacute;veloppement et leurs transformations <strong>en s'appuyant sur un &eacute;cosyst&egrave;me de professionnels en r&eacute;gions</strong> :</p>
+            <p>experts scientifiques, experts comptables, &eacute;tablissements bancaires, p&ocirc;les de comp&eacute;titivit&eacute;, f&eacute;d&eacute;rations professionnelles, avec un maillage de cabinets d'avocats et de m&eacute;decins ind&eacute;pendants.</p>
+          </div>
+          <div class="ancrage-map">
+            <img src="https://ayming-france.github.io/assets/maps/france-map.svg" alt="France" />
+          </div>
+        </div>
+      </div>
+      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+    </section>
+
+    <!-- SLIDE 13: IMPLANTATION INTERNATIONAL -->
+    <section class="slide" data-chapter="implantation">
+      <div class="slide-inner">
+        <h1 class="slide-title">
+          ... avec des bureaux dans <strong>14 pays</strong> pour une proximit&eacute; accrue<br>
+          avec nos clients et leur &eacute;cosyst&egrave;me
+        </h1>
+        <div class="implantation-container">
+          <img src="https://ayming-france.github.io/assets/maps/na-map.svg" alt="Am&eacute;rique du Nord" class="implantation-na"/>
+          <img src="https://ayming-france.github.io/assets/maps/eu-map.svg" alt="Europe" class="implantation-eu"/>
+        </div>
+      </div>
+      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+    </section>
+
+    <!-- SLIDE 14: QUESTIONS (4 FAQ cards) -->
     <section class="slide" data-chapter="questions">
       <div class="slide-inner">
         <h1 class="slide-title">Questions qu'on nous pose</h1>
@@ -676,7 +770,7 @@
     </section>
 
     <!-- SLIDE 13: PROCESSUS (4 steps) -->
-    <section class="slide" data-chapter="process">
+    <section class="slide" data-chapter="processus">
       <div class="slide-inner">
         <h1 class="slide-title">Prochaine étape</h1>
         <div class="process-timeline-4">
@@ -713,7 +807,7 @@
     </section>
 
     <!-- SLIDE 14: DÉMARRAGE (Requirements + CTA) -->
-    <section class="slide" data-chapter="start">
+    <section class="slide" data-chapter="demarrage">
       <div class="slide-inner">
         <h1 class="slide-title">Ce dont nous avons besoin</h1>
         <div class="requirements-box">
