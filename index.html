@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accompagnement contrôle URSSAF - Ayming</title>
+  <title>Accompagnement contr&ocirc;le URSSAF - Ayming</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -27,7 +27,11 @@
       --nav-collapsed: 20px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Lato', sans-serif;
@@ -39,179 +43,1221 @@
 
     /* ===== NAVIGATION ===== */
     .chapter-nav {
-      position: fixed; left: 0; top: 0;
-      width: var(--nav-width); height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: var(--nav-width);
+      height: 100vh;
       background: var(--bg-light);
       border-right: 1px solid var(--bg-subtle);
-      padding: 40px 24px; z-index: 100;
-      display: flex; flex-direction: column;
+      padding: 40px 24px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
       transform: translateX(calc(-1 * var(--nav-width) + var(--nav-collapsed)));
       transition: transform 0.3s ease;
     }
-    .chapter-nav:hover, .chapter-nav.open { transform: translateX(0); }
-    .nav-toggle {
-      position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
-      width: 14px; height: 20px;
-      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;
-      cursor: pointer; opacity: 0.3; transition: opacity 0.2s;
+
+    .chapter-nav:hover,
+    .chapter-nav.open {
+      transform: translateX(0);
     }
-    .chapter-nav:hover .nav-toggle { opacity: 0; }
-    .nav-toggle span { display: block; width: 12px; height: 1.5px; background: var(--text-gray); border-radius: 1px; }
-    .nav-header { margin-bottom: 40px; padding-right: 30px; }
-    .nav-logo { height: 32px; margin-bottom: 8px; }
-    .nav-logo img { height: 100%; width: auto; }
-    .nav-subtitle { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; text-decoration: none; display: block; }
-    .nav-subtitle:hover { color: var(--blue-accent); }
-    .nav-section { margin-bottom: 28px; }
-    .nav-section-title { font-size: 10px; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; padding-left: 4px; }
-    .nav-item { display: flex; align-items: center; padding: 10px 14px; margin-bottom: 6px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease; font-size: 13px; color: var(--text-gray); }
-    .nav-item:hover { background: var(--overlay-blue-soft); color: var(--blue-primary); }
-    .nav-item.active { background: var(--blue-primary); color: white; }
-    .nav-item-number { width: 22px; height: 22px; border-radius: 50%; background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; margin-right: 12px; flex-shrink: 0; }
-    .nav-item.active .nav-item-number { background: rgba(255,255,255,0.2); color: white; }
+
+    .nav-toggle {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: opacity 0.2s;
+    }
+
+    .chapter-nav:hover .nav-toggle {
+      opacity: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 12px;
+      height: 1.5px;
+      background: var(--text-gray);
+      border-radius: 1px;
+    }
+
+    .nav-header {
+      margin-bottom: 40px;
+      padding-right: 30px;
+    }
+
+    .nav-logo {
+      height: 32px;
+      margin-bottom: 8px;
+    }
+
+    .nav-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .nav-subtitle {
+      font-size: 11px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-subtitle:hover {
+      color: var(--blue-accent);
+    }
+
+    .nav-section {
+      margin-bottom: 28px;
+    }
+
+    .nav-section-title {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 13px;
+      color: var(--text-gray);
+    }
+
+    .nav-item:hover {
+      background: var(--overlay-blue-soft);
+      color: var(--blue-primary);
+    }
+
+    .nav-item.active {
+      background: var(--blue-primary);
+      color: white;
+    }
+
+    .nav-item-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .nav-item.active .nav-item-number {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
 
     /* ===== SLIDE COUNTER ===== */
-    .slide-counter { position: fixed; top: 30px; right: 40px; font-size: 14px; font-weight: 500; color: var(--text-gray); z-index: 100; }
-    .slide-counter .current { color: var(--blue-accent); font-weight: 600; }
+    .slide-counter {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-gray);
+      z-index: 100;
+    }
+
+    .slide-counter .current {
+      color: var(--blue-accent);
+      font-weight: 600;
+    }
 
     /* ===== PRESENTATION CONTAINER ===== */
-    .presentation { width: 100vw; height: 100vh; overflow: hidden; position: relative; transition: padding-left 0.3s ease; padding-left: var(--nav-collapsed); }
-    .chapter-nav:hover ~ .presentation, .chapter-nav.open ~ .presentation { padding-left: var(--nav-width); }
+    .presentation {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      transition: padding-left 0.3s ease;
+      padding-left: var(--nav-collapsed);
+    }
+
+    .chapter-nav:hover ~ .presentation,
+    .chapter-nav.open ~ .presentation {
+      padding-left: var(--nav-width);
+    }
 
     /* ===== SLIDES ===== */
-    .slide { position: absolute; width: 100%; height: 100%; padding: 60px 80px; display: none; opacity: 0; transition: opacity 0.4s ease; overflow: hidden; }
-    .slide.active { display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 1; }
-    .slide-inner { width: 100%; max-width: 1200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transform: scale(1.15); transform-origin: center center; }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 60px 80px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transform: scale(1.2);
+      transform-origin: center center;
+    }
 
     /* ===== COVER SLIDE ===== */
-    .slide.cover { padding: 0; }
-    .cover-layout { display: grid; grid-template-columns: 1fr 1fr; width: 100%; height: 100%; }
-    .cover-left { background: var(--gradient-brand-horizontal); display: flex; flex-direction: column; justify-content: center; padding: 80px; position: relative; }
-    .cover-logo { position: absolute; top: 50px; left: 80px; height: 55px; display: flex; align-items: center; gap: 12px; }
-    .cover-logo img { height: 100%; filter: brightness(0) invert(1); }
-    .cover-title { font-size: 52px; font-weight: 700; color: white; line-height: 1.15; }
-    .cover-subtitle { font-size: 20px; color: rgba(255,255,255,0.85); margin-top: 20px; font-weight: 400; }
-    .cover-right { position: relative; overflow: hidden; }
-    .cover-right::before { content: ''; position: absolute; top: 0; left: 0; width: 150px; height: 100%; background: linear-gradient(90deg, var(--gradient-green-end) 0%, transparent 100%); z-index: 1; }
-    .cover-image { width: 100%; height: 100%; object-fit: cover; }
+    .slide.cover {
+      padding: 0;
+    }
+
+    .cover-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cover-left {
+      background: var(--gradient-brand-horizontal);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      position: relative;
+    }
+
+    .cover-logo {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cover-logo img {
+      height: 100%;
+      filter: brightness(0) invert(1);
+    }
+
+    .cover-title {
+      font-size: 52px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+    }
+
+    .cover-subtitle {
+      font-size: 20px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 20px;
+      font-weight: 400;
+    }
+
+    .cover-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gradient-green-end) 0%, transparent 100%);
+      z-index: 1;
+    }
+
+    .cover-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     /* ===== TYPOGRAPHY ===== */
-    .slide-title { font-size: 44px; font-weight: 700; line-height: 1.2; margin-bottom: 50px; text-align: center; background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .slide-subtitle { font-size: 18px; color: var(--text-gray); margin-bottom: 50px; font-weight: 400; max-width: 900px; line-height: 1.7; }
+    .slide-title {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .title-light {
+      font-weight: 400;
+      color: var(--blue-accent);
+    }
+
+    .title-bold {
+      font-weight: 700;
+      color: var(--blue-accent);
+    }
+
+    .slide-subtitle {
+      font-size: 18px;
+      color: var(--text-gray);
+      margin-bottom: 50px;
+      font-weight: 400;
+      max-width: 900px;
+      line-height: 1.7;
+    }
 
     /* ===== LAYOUT: SPLIT ===== */
-    .layout-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; width: 100%; max-width: 1200px; align-items: center; }
-    .layout-split .content-side { text-align: left; }
-    .layout-split .content-side .slide-title { text-align: left; margin-bottom: 35px; }
-    .layout-split .visual-side { display: flex; align-items: center; justify-content: center; }
+    .layout-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+      max-width: 1200px;
+      align-items: center;
+    }
+
+    .layout-split .content-side {
+      text-align: left;
+    }
+
+    .layout-split .content-side .slide-title {
+      text-align: left;
+      margin-bottom: 35px;
+    }
+
+    .layout-split .visual-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     /* ===== LAYOUT: 3 COLUMNS ===== */
-    .three-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%; max-width: 1100px; }
-    .column-card { text-align: center; }
-    .column-card .card-image { width: 100%; height: 200px; background: var(--bg-subtle); border-radius: 16px; margin-bottom: 24px; overflow: hidden; box-shadow: var(--shadow-md); }
-    .column-card .card-image img { width: 100%; height: 100%; object-fit: cover; }
-    .column-card h3 { font-size: 18px; color: var(--blue-accent); font-weight: 600; margin-bottom: 12px; }
-    .column-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
-    .column-card p strong { color: var(--text-dark); }
-    /* ===== IDEAL GRID (4 items, 2x2) ===== */
-    .ideal-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; width: 100%; max-width: 900px; }
-    .ideal-grid-4 .column-card .card-image { height: 140px; }
-    .ideal-grid-4 .column-card h3 { font-size: 17px; }
-    .ideal-grid-4 .column-card p { font-size: 14px; }
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .column-card {
+      text-align: center;
+    }
+
+    .column-card .card-image {
+      width: 100%;
+      height: 200px;
+      background: var(--bg-subtle);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .column-card .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .column-card h3 {
+      font-size: 18px;
+      color: var(--blue-accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .column-card p {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .column-card p strong {
+      color: var(--text-dark);
+    }
 
     /* ===== PARAGRAPH STYLES ===== */
-    .content-paragraph { font-size: 17px; line-height: 1.7; color: var(--text-gray); margin-bottom: 22px; text-align: left; }
-    .content-paragraph strong { color: var(--text-dark); font-weight: 600; }
-    .content-paragraph.highlight { font-size: 18px; font-weight: 500; color: var(--blue-dark); }
+    .content-paragraph {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-gray);
+      margin-bottom: 22px;
+      text-align: left;
+    }
+
+    .content-paragraph strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    .content-paragraph.highlight {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--blue-dark);
+    }
 
     /* ===== IMAGE CONTAINER ===== */
-    .image-container { width: 100%; max-width: 480px; height: 360px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
-    .image-container img { width: 100%; height: 100%; object-fit: cover; }
-    .floating-badge { position: absolute; background: white; border-radius: 12px; padding: 12px 18px; box-shadow: var(--shadow-md); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-    .floating-badge.top-right { top: 20px; right: -15px; }
-    .floating-badge.bottom-left { bottom: 25px; left: -15px; }
-    .floating-badge .badge-number { color: #ef4444; font-weight: 700; }
-    .floating-badge svg { width: 18px; height: 18px; color: var(--blue-accent); }
+    .image-container {
+      width: 100%;
+      max-width: 480px;
+      height: 360px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-white);
+      box-shadow:
+        0 0 60px 20px rgba(17, 169, 230, 0.20),
+        0 0 100px 40px rgba(10, 179, 140, 0.12),
+        0 10px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: white;
+      border-radius: 12px;
+      padding: 12px 18px;
+      box-shadow: var(--shadow-md);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-dark);
+      z-index: 10;
+    }
+
+    .floating-badge.top-right {
+      top: 20px;
+      right: -15px;
+    }
+
+    .floating-badge.bottom-left {
+      bottom: 25px;
+      left: -15px;
+    }
+
+    .floating-badge .badge-number {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .floating-badge svg {
+      width: 18px;
+      height: 18px;
+      color: var(--blue-accent);
+    }
 
     /* ===== TABLE STYLES ===== */
-    .table-container { width: 100%; max-width: 1050px; }
-    .comparison-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
-    .comparison-table th { background: var(--blue-primary); color: white; padding: 20px 30px; font-weight: 600; font-size: 15px; }
-    .comparison-table th:first-child { text-align: center; }
-    .comparison-table th:nth-child(2), .comparison-table th:nth-child(3) { text-align: left; }
-    .comparison-table td { padding: 24px 30px; border-bottom: 1px solid var(--bg-subtle); font-size: 14px; background: var(--bg-white); }
-    .comparison-table tr:last-child td { border-bottom: none; }
-    .comparison-table td:first-child { font-weight: 600; color: var(--text-dark); text-align: center; vertical-align: middle; background: var(--bg-light); }
-    .comparison-table td:nth-child(2), .comparison-table td:nth-child(3) { text-align: left; vertical-align: top; }
-    .comparison-table ul { list-style: none; padding: 0; }
-    .comparison-table li { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; line-height: 1.5; color: var(--text-gray); }
-    .comparison-table li:last-child { margin-bottom: 0; }
-    .comparison-table li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-accent); flex-shrink: 0; margin-top: 6px; }
+    .table-container {
+      width: 100%;
+      max-width: 1050px;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .comparison-table th {
+      background: var(--blue-primary);
+      color: white;
+      padding: 20px 30px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .comparison-table th:first-child {
+      text-align: center;
+    }
+
+    .comparison-table th:nth-child(2),
+    .comparison-table th:nth-child(3) {
+      text-align: left;
+    }
+
+    .comparison-table td {
+      padding: 24px 30px;
+      border-bottom: 1px solid var(--bg-subtle);
+      font-size: 14px;
+      background: var(--bg-white);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: center;
+      vertical-align: middle;
+      background: var(--bg-light);
+    }
+
+    .comparison-table td:nth-child(2),
+    .comparison-table td:nth-child(3) {
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .comparison-table ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-table li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      color: var(--text-gray);
+    }
+
+    .comparison-table li:last-child {
+      margin-bottom: 0;
+    }
+
+    .comparison-table li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
 
     /* ===== FEATURE GRID (4 items, 2x2) ===== */
-    .feature-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px 80px; width: 100%; max-width: 1000px; }
-    .feature-item { display: flex; align-items: flex-start; gap: 20px; text-align: left; }
-    .feature-icon { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--blue-primary); color: white; box-shadow: var(--shadow-sm); }
-    .feature-icon svg { width: 30px; height: 30px; }
-    .feature-content h4 { font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
-    .feature-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
+    .feature-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px 80px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--blue-primary);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .feature-content h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .feature-content p {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
 
     /* ===== VALUE DETAIL SLIDE ===== */
-    .value-detail-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; width: 100%; max-width: 1150px; align-items: center; transform: scale(1.15); transform-origin: center center; }
-    .value-detail-content { text-align: left; }
-    .value-detail-content h2 { font-size: 38px; font-weight: 700; background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 30px; line-height: 1.2; }
-    .value-detail-list { list-style: none; }
-    .value-detail-list li { display: flex; align-items: flex-start; gap: 16px; font-size: 17px; color: var(--text-dark); margin-bottom: 20px; line-height: 1.5; }
-    .value-detail-list li:last-child { margin-bottom: 0; }
-    .value-detail-list .check-icon { width: 26px; height: 26px; flex-shrink: 0; color: var(--blue-accent); margin-top: 2px; }
-    .value-detail-visual { display: flex; align-items: center; justify-content: center; }
-    .value-image-container { width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; background: var(--bg-white); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; box-shadow: 0 0 60px 20px rgba(17, 169, 230, 0.25), 0 0 100px 40px rgba(10, 179, 140, 0.15), 0 10px 40px rgba(0, 0, 0, 0.1); }
-    .value-image-container img { width: 100%; height: auto; object-fit: contain; display: block; }
+    .value-detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+      max-width: 1150px;
+      align-items: center;
+      transform: scale(1.15);
+      transform-origin: center center;
+    }
 
-    /* ===== PROCESS TIMELINE (4 steps) ===== */
-    .process-timeline-4 { display: flex; justify-content: center; align-items: flex-start; gap: 25px; width: 100%; max-width: 1100px; }
-    .process-timeline-4 .process-step { text-align: center; flex: 1; max-width: 220px; }
-    .process-timeline-4 .step-number { width: 70px; height: 70px; font-size: 28px; margin: 0 auto 20px; }
-    .process-timeline-4 .step-title { font-size: 17px; margin-bottom: 8px; }
-    .process-timeline-4 .step-duration { font-size: 13px; margin-bottom: 10px; }
-    .process-timeline-4 .step-description { font-size: 13px; }
-    .process-timeline-4 .step-arrow { font-size: 20px; margin-top: 25px; }
-    .process-step { text-align: center; flex: 1; }
-    .step-number { width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-brand-horizontal); color: white; font-size: 32px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: var(--shadow-md); }
-    .step-title { font-size: 20px; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
-    .step-duration { font-size: 14px; color: var(--blue-accent); font-weight: 600; margin-bottom: 14px; }
-    .step-description { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
-    .step-arrow { font-size: 24px; color: var(--text-light); margin-top: 30px; flex-shrink: 0; }
+    .value-detail-content {
+      text-align: left;
+    }
+
+    .value-detail-content h2 {
+      font-size: 38px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    .value-detail-list {
+      list-style: none;
+    }
+
+    .value-detail-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 17px;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .value-detail-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .value-detail-list .check-icon {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      color: var(--blue-accent);
+      margin-top: 2px;
+    }
+
+    .value-detail-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .value-image-container {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--bg-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      box-shadow:
+        0 0 60px 20px rgba(17, 169, 230, 0.25),
+        0 0 100px 40px rgba(10, 179, 140, 0.15),
+        0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .value-image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ===== PROCESS TIMELINE ===== */
+    .process-timeline {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .process-step {
+      text-align: center;
+      flex: 1;
+      max-width: 260px;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gradient-brand-horizontal);
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .step-duration {
+      font-size: 14px;
+      color: var(--blue-accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .step-description {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .step-arrow {
+      font-size: 24px;
+      color: var(--text-light);
+      margin-top: 30px;
+      flex-shrink: 0;
+    }
 
     /* ===== REQUIREMENTS LIST ===== */
-    .requirements-box { background: var(--bg-light); border-radius: 20px; padding: 45px 55px; border-left: 5px solid var(--blue-accent); text-align: left; width: 100%; max-width: 750px; }
-    .requirements-box h4 { font-size: 22px; font-weight: 600; color: var(--text-dark); margin-bottom: 30px; }
-    .requirements-box ul { list-style: none; }
-    .requirements-box li { display: flex; align-items: center; gap: 18px; padding: 16px 0; font-size: 17px; color: var(--text-gray); border-bottom: 1px solid var(--bg-subtle); }
-    .requirements-box li:last-child { border-bottom: none; }
-    .requirements-box li .check-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gradient-brand-horizontal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .requirements-box li .check-icon svg { width: 16px; height: 16px; color: white; }
+    .requirements-box {
+      background: var(--bg-light);
+      border-radius: 20px;
+      padding: 45px 55px;
+      border-left: 5px solid var(--blue-accent);
+      text-align: left;
+      width: 100%;
+      max-width: 750px;
+    }
 
-    /* ===== CTA BOX ===== */
-    .cta-box { background: linear-gradient(90deg, #0fa7e2, #0ab38c); border-radius: 12px; padding: 24px 40px; margin-top: 20px; }
-    .cta-text { font-size: 20px; font-weight: 600; color: white; text-align: center; }
+    .requirements-box h4 {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 30px;
+    }
 
-    /* ===== COMPANY LOGO ===== */
-    .company-logo { position: absolute; bottom: 35px; right: 50px; height: 30px; }
-    .company-logo img { height: 100%; width: auto; }
+    .requirements-box ul {
+      list-style: none;
+    }
+
+    .requirements-box li {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+      font-size: 17px;
+      color: var(--text-gray);
+      border-bottom: 1px solid var(--bg-subtle);
+    }
+
+    .requirements-box li:last-child {
+      border-bottom: none;
+    }
+
+    .requirements-box li .check-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--gradient-brand-horizontal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .requirements-box li .check-icon svg {
+      width: 16px;
+      height: 16px;
+      color: white;
+    }
+
+    /* ===== LOGO ===== */
+    .company-logo {
+      position: absolute;
+      bottom: 35px;
+      right: 50px;
+      height: 30px;
+    }
+
+    .company-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    /* ===== IMPLANTATION MAP ===== */
+    .implantation-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 1050px;
+      margin: -10px auto 0;
+      padding: 0;
+    }
+
+    .slide-inner:has(.implantation-container) .slide-title {
+      margin-bottom: 10px;
+    }
+
+    .implantation-na {
+      height: min(560px, calc(100vh - 220px));
+      width: auto;
+      object-fit: contain;
+    }
+
+    .implantation-eu {
+      height: min(560px, calc(100vh - 220px));
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ===== ANCRAGE FRANCE LAYOUT ===== */
+    .ancrage-layout {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      max-height: 100%;
+    }
+
+    .ancrage-text {
+      flex: 0 0 42%;
+    }
+
+    .ancrage-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-gray);
+      text-align: left;
+    }
+
+    .ancrage-text p strong {
+      color: var(--text-dark);
+    }
+
+    .ancrage-map {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-height: 0;
+    }
+
+    .ancrage-map img {
+      max-height: min(540px, calc(100vh - 180px));
+      width: auto;
+      object-fit: contain;
+    }
 
     /* ===== FAQ CARDS ===== */
-    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; width: 100%; max-width: 1100px; }
-    .faq-card { background: var(--bg-white); border-radius: 18px; padding: 38px 44px; box-shadow: var(--shadow-sm); border: 1px solid var(--bg-subtle); text-align: left; }
-    .faq-card h4 { font-size: 17px; font-weight: 600; color: var(--blue-accent); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
-    .faq-card h4 svg { width: 26px; height: 26px; flex-shrink: 0; }
-    .faq-card p { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .faq-card {
+      background: var(--bg-white);
+      border-radius: 18px;
+      padding: 38px 44px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--bg-subtle);
+      text-align: left;
+    }
+
+    .faq-card h4 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--blue-accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-card h4 svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .faq-card p {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
 
     /* ===== IDEAL WORLD CARDS ===== */
-    .ideal-card .card-image { background: linear-gradient(135deg, #e0f4f8 0%, #e3f9ed 100%); display: flex; align-items: center; justify-content: center; }
-    .ideal-card .card-image svg { width: 65px; height: 65px; color: var(--blue-accent); }
+    .ideal-card .card-image {
+      background: linear-gradient(135deg, #e0f4f8 0%, #e3f9ed 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    /* ===== TESTIMONIAL SPLIT (1 testimonial) ===== */
+    .ideal-card .card-image svg {
+      width: 65px;
+      height: 65px;
+      color: var(--blue-accent);
+    }
+
+    /* ===== KEYBOARD HINT ===== */
+    .keyboard-hint {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 8px;
+      background: var(--bg-subtle);
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 11px;
+      margin: 0 2px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .key:hover {
+      background: var(--blue-primary);
+      color: white;
+    }
+
+    .key:active {
+      transform: scale(0.95);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide.active .slide-title,
+    .slide.active .cover-title,
+    .slide.active .value-detail-content h2 {
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .slide.active .slide-subtitle,
+    .slide.active .cover-subtitle {
+      animation: fadeInUp 0.5s ease 0.1s forwards;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+
+    .slide.active .content-paragraph {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .slide.active .content-paragraph:nth-child(2) { animation-delay: 0.1s; }
+    .slide.active .content-paragraph:nth-child(3) { animation-delay: 0.15s; }
+    .slide.active .content-paragraph:nth-child(4) { animation-delay: 0.2s; }
+
+    .slide.active .column-card,
+    .slide.active .stat-card,
+    .slide.active .faq-card,
+    .slide.active .feature-item,
+    .slide.active .process-step {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .slide.active .column-card:nth-child(1),
+    .slide.active .stat-card:nth-child(1),
+    .slide.active .feature-item:nth-child(1) { animation-delay: 0.15s; }
+    .slide.active .column-card:nth-child(2),
+    .slide.active .stat-card:nth-child(2),
+    .slide.active .feature-item:nth-child(2) { animation-delay: 0.25s; }
+    .slide.active .column-card:nth-child(3),
+    .slide.active .stat-card:nth-child(3),
+    .slide.active .feature-item:nth-child(3) { animation-delay: 0.35s; }
+    .slide.active .feature-item:nth-child(4) { animation-delay: 0.45s; }
+    .slide.active .feature-item:nth-child(5) { animation-delay: 0.55s; }
+
+    .slide.active .process-step:nth-of-type(1) { animation-delay: 0.15s; }
+    .slide.active .process-step:nth-of-type(2) { animation-delay: 0.30s; }
+    .slide.active .process-step:nth-of-type(3) { animation-delay: 0.45s; }
+    .slide.active .process-step:nth-of-type(4) { animation-delay: 0.60s; }
+
+    .slide.active .faq-card:nth-child(1) { animation-delay: 0.1s; }
+    .slide.active .faq-card:nth-child(2) { animation-delay: 0.2s; }
+    .slide.active .faq-card:nth-child(3) { animation-delay: 0.3s; }
+    .slide.active .faq-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .slide.active .value-detail-list li {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .slide.active .value-detail-list li:nth-child(1) { animation-delay: 0.15s; }
+    .slide.active .value-detail-list li:nth-child(2) { animation-delay: 0.25s; }
+    .slide.active .value-detail-list li:nth-child(3) { animation-delay: 0.35s; }
+    .slide.active .value-detail-list li:nth-child(4) { animation-delay: 0.45s; }
+
+    .slide.active .testimonial-split-content { animation: fadeInUp 0.5s ease 0.15s forwards; opacity: 0; }
+    .slide.active .testimonial-split-image { animation: fadeInUp 0.5s ease 0.3s forwards; opacity: 0; }
+
+    .slide.active .testimonial-card {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+    .slide.active .testimonial-card:nth-child(1) { animation-delay: 0.15s; }
+    .slide.active .testimonial-card:nth-child(2) { animation-delay: 0.3s; }
+    .slide.active .testimonial-card:nth-child(3) { animation-delay: 0.45s; }
+
+    .slide.active .requirements-box li {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+    .slide.active .requirements-box li:nth-child(1) { animation-delay: 0.15s; }
+    .slide.active .requirements-box li:nth-child(2) { animation-delay: 0.25s; }
+    .slide.active .requirements-box li:nth-child(3) { animation-delay: 0.35s; }
+    .slide.active .requirements-box li:nth-child(4) { animation-delay: 0.45s; }
+
+    /* ===== INTRODUCTION SLIDE - HERO LAYOUT ===== */
+    .slide-introduction {
+      padding: 0;
+    }
+
+    .slide-introduction .slide-inner {
+      transform: scale(1.0);
+      justify-content: flex-start;
+      padding-top: 0;
+      max-width: none;
+      width: 100%;
+    }
+
+    .intro-hero {
+      width: 100vw;
+      max-width: none;
+      height: 70vh;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .intro-hero-collage {
+      display: flex;
+      width: max-content;
+      height: 100%;
+      animation: scrollCarousel 45s linear infinite;
+    }
+
+    .intro-hero-collage img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    @keyframes scrollCarousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .intro-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 61, 121, 0.25) 0%,
+        rgba(0, 0, 0, 0.05) 30%,
+        rgba(0, 0, 0, 0.05) 60%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      pointer-events: none;
+    }
+
+    .intro-hero-logo {
+      position: absolute;
+      top: 30px; left: 40px; z-index: 3;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .intro-hero-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .intro-title-band {
+      position: absolute;
+      bottom: 140px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 20px 60px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .intro-offer-title {
+      font-size: 42px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.5px;
+      margin: 0;
+      background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-stats {
+      position: absolute;
+      bottom: 0; left: 0; right: 0; z-index: 2;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 28px 60px;
+    }
+
+    .intro-stat-card {
+      background: transparent;
+      padding: 16px 70px;
+      text-align: center;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .intro-stat-card:last-child {
+      border-right: none;
+    }
+
+    .intro-stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--blue-accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .intro-stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .intro-content {
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .intro-pitch {
+      font-size: 18px;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    @keyframes fadeInUpCentered {
+      from { opacity: 0; transform: translateX(-50%) translateY(25px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .slide-introduction.active .intro-hero-logo {
+      animation: fadeInUp 0.5s ease 0.1s forwards;
+      opacity: 0;
+    }
+    .slide-introduction.active .intro-title-band {
+      animation: fadeInUpCentered 0.6s ease 0.3s forwards;
+      opacity: 0;
+    }
+    .slide-introduction.active .intro-stat-card {
+      animation: fadeInUp 0.5s ease forwards;
+      opacity: 0;
+    }
+    .slide-introduction.active .intro-stat-card:nth-child(1) { animation-delay: 0.5s; }
+    .slide-introduction.active .intro-stat-card:nth-child(2) { animation-delay: 0.65s; }
+    .slide-introduction.active .intro-stat-card:nth-child(3) { animation-delay: 0.8s; }
+    .slide-introduction.active .intro-stat-card:nth-child(4) { animation-delay: 0.95s; }
+    .slide-introduction.active .intro-pitch {
+      animation: fadeInUp 0.5s ease 1s forwards;
+      opacity: 0;
+    }
+
+    /* ===== TESTIMONIAL SPLIT (single testimonial) ===== */
     .testimonial-split {
       display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
       width: 100%; max-width: 1100px; align-items: center;
@@ -240,182 +1286,392 @@
     .testimonial-split-image { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); }
     .testimonial-split-image img { width: 100%; height: auto; object-fit: cover; display: block; }
 
-    /* ===== KEYBOARD HINT ===== */
-    .keyboard-hint { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--text-light); display: flex; align-items: center; gap: 20px; }
-    .key { display: inline-flex; align-items: center; justify-content: center; padding: 3px 8px; background: var(--bg-subtle); border-radius: 4px; font-family: monospace; font-size: 11px; margin: 0 2px; cursor: pointer; transition: all 0.15s ease; user-select: none; }
-    .key:hover { background: var(--blue-primary); color: white; }
-    .key:active { transform: scale(0.95); }
-
-    /* ===== INTRODUCTION SLIDE - HERO LAYOUT ===== */
-    .slide-introduction { padding: 0; }
-    .slide-introduction .slide-inner { transform: scale(1.0); justify-content: flex-start; padding-top: 0; max-width: none; width: 100%; }
-    .intro-hero { width: 100vw; max-width: none; height: 70vh; position: relative; overflow: hidden; margin-bottom: 30px; }
-    .intro-hero-collage { display: flex; width: max-content; height: 100%; animation: scrollCarousel 45s linear infinite; }
-    .intro-hero-collage img { width: auto; height: 100%; object-fit: contain; flex-shrink: 0; }
-    @keyframes scrollCarousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .intro-hero::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0, 61, 121, 0.25) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.05) 60%, rgba(0, 0, 0, 0.2) 100%); pointer-events: none; }
-    .intro-hero-logo { position: absolute; top: 30px; left: 40px; z-index: 3; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); display: flex; align-items: center; justify-content: center; }
-    .intro-hero-logo img { height: 44px; width: auto; display: block; }
-    .intro-title-band { position: absolute; bottom: 140px; left: 50%; transform: translateX(-50%); z-index: 3; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 20px 60px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); }
-    .intro-offer-title { font-size: 42px; font-weight: 700; text-align: center; letter-spacing: -0.5px; margin: 0; background: linear-gradient(90deg, var(--gradient-blue-start), var(--gradient-green-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .intro-stats { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; justify-content: center; gap: 0; padding: 28px 60px; }
-    .intro-stat-card { background: transparent; padding: 16px 70px; text-align: center; border-right: 1px solid #e0e0e0; }
-    .intro-stat-card:last-child { border-right: none; }
-    .intro-stat-number { font-size: 48px; font-weight: 700; color: var(--blue-accent); line-height: 1; margin-bottom: 8px; }
-    .intro-stat-label { font-size: 12px; font-weight: 600; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.5px; }
-    .intro-content { text-align: center; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-    .intro-pitch { font-size: 18px; color: var(--text-dark); line-height: 1.7; margin: 0; font-weight: 400; }
-    @keyframes fadeInUpCentered { from { opacity: 0; transform: translateX(-50%) translateY(25px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
-    .slide-introduction.active .intro-hero-logo { animation: fadeInUp 0.5s ease 0.1s forwards; opacity: 0; }
-    .slide-introduction.active .intro-title-band { animation: fadeInUpCentered 0.6s ease 0.3s forwards; opacity: 0; }
-    .slide-introduction.active .intro-stat-card { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-    .slide-introduction.active .intro-stat-card:nth-child(1) { animation-delay: 0.5s; }
-    .slide-introduction.active .intro-stat-card:nth-child(2) { animation-delay: 0.65s; }
-    .slide-introduction.active .intro-stat-card:nth-child(3) { animation-delay: 0.8s; }
-    .slide-introduction.active .intro-stat-card:nth-child(4) { animation-delay: 0.95s; }
-    .slide-introduction.active .intro-pitch { animation: fadeInUp 0.5s ease 1s forwards; opacity: 0; }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-    .slide.active .slide-title, .slide.active .cover-title, .slide.active .value-detail-content h2 { animation: fadeInUp 0.5s ease forwards; }
-    .slide.active .slide-subtitle, .slide.active .cover-subtitle { animation: fadeInUp 0.5s ease 0.1s forwards; opacity: 0; animation-fill-mode: forwards; }
-    .slide.active .content-paragraph { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-    .slide.active .content-paragraph:nth-child(2) { animation-delay: 0.1s; }
-    .slide.active .content-paragraph:nth-child(3) { animation-delay: 0.15s; }
-    .slide.active .content-paragraph:nth-child(4) { animation-delay: 0.2s; }
-    .slide.active .column-card, .slide.active .stat-card, .slide.active .faq-card, .slide.active .feature-item, .slide.active .process-step { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-    .slide.active .column-card:nth-child(1), .slide.active .stat-card:nth-child(1), .slide.active .feature-item:nth-child(1) { animation-delay: 0.15s; }
-    .slide.active .column-card:nth-child(2), .slide.active .stat-card:nth-child(2), .slide.active .feature-item:nth-child(2) { animation-delay: 0.25s; }
-    .slide.active .column-card:nth-child(3), .slide.active .stat-card:nth-child(3), .slide.active .feature-item:nth-child(3) { animation-delay: 0.35s; }
-    .slide.active .column-card:nth-child(4), .slide.active .feature-item:nth-child(4) { animation-delay: 0.45s; }
-    .slide.active .column-card:nth-child(5) { animation-delay: 0.55s; }
-    .slide.active .column-card:nth-child(6) { animation-delay: 0.65s; }
-    .slide.active .process-step:nth-of-type(1) { animation-delay: 0.15s; }
-    .slide.active .process-step:nth-of-type(2) { animation-delay: 0.30s; }
-    .slide.active .process-step:nth-of-type(3) { animation-delay: 0.45s; }
-    .slide.active .process-step:nth-of-type(4) { animation-delay: 0.60s; }
-    .slide.active .faq-card:nth-child(1) { animation-delay: 0.1s; }
-    .slide.active .faq-card:nth-child(2) { animation-delay: 0.2s; }
-    .slide.active .faq-card:nth-child(3) { animation-delay: 0.3s; }
-    .slide.active .faq-card:nth-child(4) { animation-delay: 0.4s; }
-    .slide.active .value-detail-list li { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-    .slide.active .value-detail-list li:nth-child(1) { animation-delay: 0.15s; }
-    .slide.active .value-detail-list li:nth-child(2) { animation-delay: 0.25s; }
-    .slide.active .value-detail-list li:nth-child(3) { animation-delay: 0.35s; }
-    .slide.active .value-detail-list li:nth-child(4) { animation-delay: 0.45s; }
-    .slide.active .testimonial-split-content { animation: fadeInUp 0.5s ease 0.15s forwards; opacity: 0; }
-    .slide.active .testimonial-split-image { animation: fadeInUp 0.5s ease 0.3s forwards; opacity: 0; }
-    .slide.active .requirements-box li { animation: fadeInUp 0.5s ease forwards; opacity: 0; }
-    .slide.active .requirements-box li:nth-child(1) { animation-delay: 0.15s; }
-    .slide.active .requirements-box li:nth-child(2) { animation-delay: 0.25s; }
-    .slide.active .requirements-box li:nth-child(3) { animation-delay: 0.35s; }
-    .slide.active .requirements-box li:nth-child(4) { animation-delay: 0.45s; }
-
-    /* ===== IMPLANTATION (ANCRAGE + INTERNATIONAL) ===== */
-    .ancrage-layout {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .ancrage-text {
-      flex: 0 0 42%;
-    }
-
-    .ancrage-text p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-gray);
-      text-align: left;
-    }
-
-    .ancrage-text p strong {
-      color: var(--text-dark);
-    }
-
-    .ancrage-map {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .ancrage-map img {
-      height: 540px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .implantation-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ===== TESTIMONIAL FLIP CARDS ===== */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 40px;
       width: 100%;
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 0;
+      perspective: 1000px;
     }
 
-    .implantation-na {
-      height: 540px;
+    .testimonial-grid.count-3 { grid-template-columns: repeat(3, 1fr); }
+    .testimonial-grid.count-2 { grid-template-columns: repeat(2, 1fr); max-width: 750px; margin: 0 auto; }
+    .testimonial-grid.count-1 { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+
+    .testimonial-card {
+      position: relative;
+      height: 420px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .testimonial-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .testimonial-card:hover .testimonial-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .testimonial-front,
+    .testimonial-back {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backface-visibility: hidden;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .testimonial-front {
+      background: var(--bg-white);
+    }
+
+    .testimonial-front > img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .testimonial-card:hover .testimonial-front > img {
+      transform: scale(1.05);
+    }
+
+    .testimonial-front::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 35%,
+        rgba(0,0,0,0.05) 55%, rgba(0,61,121,0.4) 85%,
+        rgba(0,61,121,0.6) 100%
+      );
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .testimonial-logo {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.5);
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover .testimonial-logo {
+      transform: scale(1.05);
+    }
+
+    .testimonial-logo img {
+      height: 30px;
       width: auto;
+      max-width: 110px;
       object-fit: contain;
+      display: block;
     }
 
-    .implantation-eu {
-      height: 540px;
+    .testimonial-title {
+      position: absolute;
+      bottom: 80px;
+      left: 24px; right: 24px;
+      font-size: 19px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.35;
+      margin: 0;
+      z-index: 2;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+      letter-spacing: -0.01em;
+    }
+
+    .testimonial-hint {
+      position: absolute;
+      bottom: 20px; right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--gradient-green-end));
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 24px;
+      z-index: 2;
+      box-shadow: 0 4px 16px rgba(0, 61, 121, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-hint svg {
+      width: 16px; height: 16px;
+      animation: spin-hint 2s ease-in-out infinite;
+    }
+
+    @keyframes spin-hint {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
+    }
+
+    .testimonial-card:hover .testimonial-hint {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .testimonial-back {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      padding: 28px 28px 24px;
+      text-align: left;
+      position: relative;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-stars-icons {
+      color: #fbbf24;
+      font-size: 18px;
+      letter-spacing: 3px;
+    }
+
+    .testimonial-date {
+      color: var(--text-gray);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .testimonial-quote-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .testimonial-quote::before {
+      content: '\201C';
+      font-size: 28px;
+      font-family: Georgia, serif;
+      color: var(--blue-primary);
+      opacity: 0.5;
+      margin-right: 4px;
+      line-height: 1;
+    }
+
+    .testimonial-quote::after {
+      content: '\201D';
+      font-size: 28px;
+      font-family: Georgia, serif;
+      color: var(--blue-primary);
+      opacity: 0.5;
+      margin-left: 4px;
+      line-height: 1;
+    }
+
+    .testimonial-quote {
+      color: var(--text-dark);
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--gradient-green-end));
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 12px;
+      padding: 10px 20px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,61,121,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .testimonial-cta::after {
+      content: '\2192';
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .testimonial-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,61,121,0.4);
+    }
+
+    .testimonial-cta:hover::after {
+      transform: translateX(4px);
+    }
+
+    .testimonial-author {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-position {
+      font-size: 12px;
+      color: var(--text-gray);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-company-logo {
+      height: 22px;
       width: auto;
+      max-width: 70px;
       object-fit: contain;
+      opacity: 0.7;
+      display: block;
     }
 
+    /* ===== CTA BOX ===== */
+    .cta-box {
+      background: linear-gradient(90deg, #0fa7e2, #0ab38c);
+      border-radius: 12px;
+      padding: 24px 40px;
+      margin-top: 20px;
+    }
+
+    .cta-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
   <!-- Chapter Navigation -->
   <nav class="chapter-nav">
-    <div class="nav-toggle"><span></span><span></span><span></span></div>
+    <div class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="nav-header">
-      <div class="nav-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
-      <a class="nav-subtitle" href="https://www.ayming.fr/ressources-humaines/couts-rh/controle-urssaf/?utm_source=slides-sales&utm_medium=print&utm_campaign=controle-urssaf" target="_blank">Accompagnement contrôle URSSAF</a>
+      <div class="nav-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
+      <a class="nav-subtitle" href="https://www.ayming.fr/ressources-humaines/couts-rh/controle-urssaf/?utm_source=slides-sales&utm_medium=print&utm_campaign=controle-urssaf" target="_blank">Accompagnement contr&ocirc;le URSSAF</a>
     </div>
+
     <div class="nav-section">
-      <div class="nav-section-title">Le Marché</div>
-      <div class="nav-item active" data-slide="0"><span class="nav-item-number">01</span>Couverture</div>
-      <div class="nav-item" data-slide="1"><span class="nav-item-number">02</span>Insight</div>
-      <div class="nav-item" data-slide="2"><span class="nav-item-number">03</span>Alternatives</div>
-      <div class="nav-item" data-slide="3"><span class="nav-item-number">04</span>Comparaison</div>
-      <div class="nav-item" data-slide="4"><span class="nav-item-number">05</span>Monde idéal</div>
+      <div class="nav-section-title">Le March&eacute;</div>
+      <div class="nav-item active" data-slide="0">
+        <span class="nav-item-number">01</span>
+        Couverture
+      </div>
+      <div class="nav-item" data-slide="1">
+        <span class="nav-item-number">02</span>
+        Insight
+      </div>
+      <div class="nav-item" data-slide="2">
+        <span class="nav-item-number">03</span>
+        Alternatives
+      </div>
+      <div class="nav-item" data-slide="3">
+        <span class="nav-item-number">04</span>
+        Comparaison
+      </div>
+      <div class="nav-item" data-slide="4">
+        <span class="nav-item-number">05</span>
+        Monde Id&eacute;al
+      </div>
     </div>
+
     <div class="nav-section">
       <div class="nav-section-title">Notre Solution</div>
-      <div class="nav-item" data-slide="5"><span class="nav-item-number">06</span>Introduction</div>
-      <div class="nav-item" data-slide="6"><span class="nav-item-number">07</span>Valeur</div>
-      <div class="nav-item" data-slide="11"><span class="nav-item-number">08</span>Preuves</div>
-      <div class="nav-item" data-slide="12"><span class="nav-item-number">09</span>Implantation</div>
-      <div class="nav-item" data-slide="14"><span class="nav-item-number">10</span>Questions</div>
-      <div class="nav-item" data-slide="15"><span class="nav-item-number">11</span>Processus</div>
-      <div class="nav-item" data-slide="16"><span class="nav-item-number">12</span>Démarrage</div>
+      <div class="nav-item" data-slide="5">
+        <span class="nav-item-number">06</span>
+        Introduction
+      </div>
+      <div class="nav-item" data-slide="6">
+        <span class="nav-item-number">07</span>
+        Valeur
+      </div>
+      <div class="nav-item" data-slide="11">
+        <span class="nav-item-number">08</span>
+        Preuves
+      </div>
+      <div class="nav-item" data-slide="12">
+        <span class="nav-item-number">09</span>
+        Implantation
+      </div>
+      <div class="nav-item" data-slide="14">
+        <span class="nav-item-number">10</span>
+        Questions
+      </div>
+      <div class="nav-item" data-slide="15">
+        <span class="nav-item-number">11</span>
+        Processus
+      </div>
+      <div class="nav-item" data-slide="16">
+        <span class="nav-item-number">12</span>
+        D&eacute;marrage
+      </div>
     </div>
   </nav>
 
+  <!-- Slide Counter -->
   <div class="slide-counter"><span class="current">1</span>/17</div>
 
+  <!-- Presentation -->
   <main class="presentation">
+
+    <!-- ========== SLIDES GO HERE ========== -->
 
     <!-- SLIDE 0: COVER -->
     <section class="slide cover active" data-chapter="cover">
       <div class="cover-layout">
         <div class="cover-left">
-          <div class="cover-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
-          <h1 class="cover-title">Accompagnement<br>contrôle URSSAF</h1>
-          <p class="cover-subtitle">Préparation, accompagnement et contestation des redressements</p>
+          <div class="cover-logo">
+            <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+          </div>
+          <h1 class="cover-title">Accompagnement contr&ocirc;le URSSAF</h1>
+          <p class="cover-subtitle">Pr&eacute;paration, accompagnement et contestation des redressements</p>
         </div>
         <div class="cover-right">
-          <img class="cover-image" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&h=1200&fit=crop" alt="Documents et signature">
+          <img class="cover-image" src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Contr&ocirc;le URSSAF">
         </div>
       </div>
     </section>
@@ -424,282 +1680,467 @@
     <section class="slide" data-chapter="insight">
       <div class="layout-split">
         <div class="content-side">
-          <h1 class="slide-title">Plus de 9 contr&ocirc;les URSSAF sur 10 aboutissent &agrave; un redressement</h1>
+          <h1 class="slide-title">Contr&ocirc;le URSSAF : plus de 9 sur 10 aboutissent &agrave; un redressement</h1>
 
-          <p class="content-paragraph">
-            Le contrôle URSSAF est une véritable <strong>angoisse pour les entreprises</strong>. On redoute de se faire épingler, même quand on pense être en règle. Ce n'est plus une question de « si » mais de « quand ». En moyenne, une entreprise est contrôlée <strong>tous les 3 à 5 ans</strong>.
-          </p>
+          <p class="content-paragraph">Le contr&ocirc;le URSSAF appara&icirc;t comme une v&eacute;ritable angoisse pour les entreprises. On redoute toujours de se faire &eacute;pingler, m&ecirc;me quand on pense &ecirc;tre en r&egrave;gle. Pourtant, la question n'est plus &laquo; est-ce que je vais &ecirc;tre contr&ocirc;l&eacute; ? &raquo; mais &laquo; quand ? &raquo;. En moyenne, une entreprise est contr&ocirc;l&eacute;e tous les 3 &agrave; 5 ans.</p>
 
-          <p class="content-paragraph">
-            Quand l'avis de passage arrive, le réflexe est de se tourner vers l'expert-comptable ou l'avocat. L'expert-comptable a une <strong>vision comptable</strong>, pas paie. L'avocat intervient souvent <strong>trop tard</strong>, après la lettre d'observations. Et en interne, on improvise.
-          </p>
+          <p class="content-paragraph">L'expertise est fragment&eacute;e, et personne ne couvre l'ensemble. L'expert-comptable a une vision comptable, pas paie. L'avocat a l'expertise juridique mais intervient souvent trop tard. Et la gestion interne se fait sans pr&eacute;-contr&ocirc;le, sans connaissance des droits, sans strat&eacute;gie de contestation.</p>
 
-          <p class="content-paragraph highlight">
-            Chez Ayming, nous croyons qu'aucune entreprise ne devrait subir un contrôle URSSAF seule - le contrôle est gérable avec la bonne préparation et le bon accompagnement.
-          </p>
+          <p class="content-paragraph highlight">Chez Ayming, nous croyons qu'aucune entreprise ne devrait subir un contr&ocirc;le URSSAF seule. Le contr&ocirc;le est g&eacute;rable avec la bonne pr&eacute;paration et le bon accompagnement.</p>
         </div>
 
         <div class="visual-side">
           <div class="image-container">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-prob.jpg" alt="Contrôle URSSAF">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-prob.jpg" alt="Contr&ocirc;le URSSAF enjeux">
             <div class="floating-badge top-right">
-              <span class="badge-number">9/10</span> Redressements
+              <span class="badge-number">9/10</span>
+              aboutissent &agrave; un redressement
             </div>
             <div class="floating-badge bottom-left">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-              1,6 Mds € en 2024
+              <i data-lucide="trending-up"></i>
+              1,6 Md&euro; en 2024
             </div>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+      </div>
     </section>
 
-    <!-- SLIDE 2: ALTERNATIVES - Cards -->
+    <!-- SLIDE 2: ALTERNATIVES CARDS -->
     <section class="slide" data-chapter="alternatives">
       <div class="slide-inner">
-        <h1 class="slide-title">Comment les entreprises gèrent<br>un contrôle URSSAF aujourd'hui</h1>
+        <h1 class="slide-title">Comment les entreprises g&egrave;rent un contr&ocirc;le URSSAF aujourd'hui</h1>
+
         <div class="three-columns">
+          <!-- Card 1 -->
           <div class="column-card">
-            <div class="card-image"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop" alt="Gestion interne"></div>
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Gestion interne">
+            </div>
             <h3>Gestion interne</h3>
-            <p><strong>Improvisé et risqué.</strong> L'équipe gère seule. Pas de pré-contrôle, pas de vision des risques, pas de stratégie de contestation.</p>
+            <p><strong>G&eacute;rable en apparence.</strong> L'&eacute;quipe RH et comptable conna&icirc;t le dossier, mais sans pr&eacute;-contr&ocirc;le ni strat&eacute;gie de contestation, les r&eacute;ponses sont improvis&eacute;es et les droits m&eacute;connus.</p>
           </div>
+
+          <!-- Card 2 -->
           <div class="column-card">
-            <div class="card-image"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Expert-comptable"></div>
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop" alt="Expert-comptable">
+            </div>
             <h3>Expert-comptable</h3>
-            <p><strong>Comptable, pas paie.</strong> Il couvre le volet comptable. Les premiers chefs de redressement sont des sujets paie qu'il ne maîtrise pas.</p>
+            <p><strong>Comptable mais pas paie.</strong> La relation de confiance existe, mais les premiers chefs de redressement (Fillon, avantages en nature, frais pro) sont des sujets paie hors de son p&eacute;rim&egrave;tre.</p>
           </div>
+
+          <!-- Card 3 -->
           <div class="column-card">
-            <div class="card-image"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Avocat"></div>
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Avocat droit social">
+            </div>
             <h3>Avocat en droit social</h3>
-            <p><strong>Trop tard.</strong> L'avocat intervient souvent après la lettre d'observations. Pas de pré-contrôle ni de connaissance opérationnelle de la paie.</p>
+            <p><strong>Juridique mais tardif.</strong> L'expertise pour contester existe, mais l'intervention arrive souvent apr&egrave;s la lettre d'observations. Pas de pr&eacute;-contr&ocirc;le ni de diagnostic pr&eacute;ventif.</p>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+      </div>
     </section>
 
-    <!-- SLIDE 3: ALTERNATIVES - Table -->
+    <!-- SLIDE 3: ALTERNATIVES TABLE -->
     <section class="slide" data-chapter="alternatives">
       <div class="slide-inner">
         <h1 class="slide-title">Chaque approche a ses limites</h1>
+
         <div class="table-container">
           <table class="comparison-table">
-            <thead><tr><th>Approche</th><th>Avantages</th><th>Inconvénients</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Approche</th>
+                <th>Avantages</th>
+                <th>Inconv&eacute;nients</th>
+              </tr>
+            </thead>
             <tbody>
               <tr>
                 <td>Gestion interne</td>
-                <td><ul><li>Connaissance du dossier</li><li>Pas de coût externe</li><li>Contrôle perçu comme ponctuel</li></ul></td>
-                <td><ul><li>Pas de pré-contrôle ni vision des risques</li><li>Réponses improvisées qui aggravent</li><li>Méconnaissance des droits de l'employeur</li><li>Pas de stratégie de contestation</li></ul></td>
+                <td>
+                  <ul>
+                    <li>Connaissance du dossier</li>
+                    <li>Pas de co&ucirc;t externe</li>
+                    <li>Contr&ocirc;le per&ccedil;u comme ponctuel</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Pas de pr&eacute;-contr&ocirc;le ni de vision des risques</li>
+                    <li>R&eacute;ponses improvis&eacute;es qui aggravent la situation</li>
+                    <li>M&eacute;connaissance des droits de l'employeur</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <td>Expert-comptable</td>
-                <td><ul><li>Relation de confiance existante</li><li>Connaissance de la situation comptable</li><li>Pas de coût perçu</li></ul></td>
-                <td><ul><li>Expertise comptable, pas droit social/paie</li><li>Premiers chefs de redressement = sujets paie</li><li>Pas de vision transversale (paie + compta + CSE)</li><li>Pas de connaissance des pratiques URSSAF</li></ul></td>
+                <td>
+                  <ul>
+                    <li>Relation de confiance</li>
+                    <li>Connaissance comptable</li>
+                    <li>Pas de co&ucirc;t suppl&eacute;mentaire per&ccedil;u</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Expertise comptable, pas en paie</li>
+                    <li>Fillon, avantages en nature, frais pro hors radar</li>
+                    <li>Pas de vision transversale des 3 cat&eacute;gories</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
-                <td>Avocat droit social</td>
-                <td><ul><li>Expertise juridique pour contester</li><li>Connaissance des voies de recours</li><li>Crédibilité face à l'administration</li></ul></td>
-                <td><ul><li>Intervient souvent après la lettre d'observations</li><li>Coût horaire élevé</li><li>Pas de connaissance opérationnelle paie</li><li>Pas de pré-contrôle ni diagnostic préventif</li></ul></td>
+                <td>Avocat</td>
+                <td>
+                  <ul>
+                    <li>Expertise juridique pour contester</li>
+                    <li>Connaissance des voies de recours</li>
+                    <li>Cr&eacute;dibilit&eacute; face &agrave; l'administration</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Intervient souvent apr&egrave;s la lettre d'observations</li>
+                    <li>Co&ucirc;t horaire &eacute;lev&eacute;</li>
+                    <li>Pas de pr&eacute;-contr&ocirc;le ni de diagnostic pr&eacute;ventif</li>
+                  </ul>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+      </div>
     </section>
 
-    <!-- SLIDE 4: MONDE IDÉAL (6 items, 3x2) -->
+    <!-- SLIDE 4: MONDE IDEAL -->
     <section class="slide" data-chapter="monde-ideal">
       <div class="slide-inner">
-        <h1 class="slide-title">La solution idéale face<br>au contrôle URSSAF</h1>
-        <div class="ideal-grid-4">
+        <h1 class="slide-title">La solution id&eacute;ale face au contr&ocirc;le URSSAF</h1>
+
+        <div class="three-columns">
+          <!-- Ideal 1 -->
           <div class="column-card ideal-card">
-            <div class="card-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-            <h3>Pré-contrôle pour identifier les risques</h3>
-            <p>Cartographie des zones de risque et correction des erreurs avant l'inspecteur</p>
+            <div class="card-image">
+              <i data-lucide="search"></i>
+            </div>
+            <h3>Pr&eacute;-contr&ocirc;le et pr&eacute;paration</h3>
+            <p>Cartographie des zones de risque, correction des erreurs avant l'arriv&eacute;e de l'inspecteur, formation des &eacute;quipes aux bonnes pratiques et aux droits de l'employeur</p>
           </div>
+
+          <!-- Ideal 2 -->
           <div class="column-card ideal-card">
-            <div class="card-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-            <h3>Accompagnement stratégique</h3>
-            <p>Un consultant spécialisé à vos côtés qui connaît les pratiques URSSAF</p>
+            <div class="card-image">
+              <i data-lucide="shield"></i>
+            </div>
+            <h3>Accompagnement strat&eacute;gique et contestation</h3>
+            <p>R&eacute;ponses r&eacute;fl&eacute;chies face &agrave; l'inspecteur, analyse de chaque chef de redressement, r&eacute;ponse argument&eacute;e dans les 30 jours, coordination avec un cabinet d'avocats ind&eacute;pendants</p>
           </div>
+
+          <!-- Ideal 3 -->
           <div class="column-card ideal-card">
-            <div class="card-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></div>
-            <h3>Contestation argumentée</h3>
-            <p>Analyse de chaque chef de redressement, réponse dans les 30 jours</p>
-          </div>
-          <div class="column-card ideal-card">
-            <div class="card-image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"/></svg></div>
-            <h3>Plan d'action correctif</h3>
-            <p>Corrections pour ne pas refaire les mêmes erreurs au prochain contrôle</p>
+            <div class="card-image">
+              <i data-lucide="refresh-cw"></i>
+            </div>
+            <h3>Vision transversale et correction durable</h3>
+            <p>Couverture des 3 cat&eacute;gories de chefs de redressement (paie, comptable, CSE), plan d'action correctif post-contr&ocirc;le pour &eacute;viter la r&eacute;currence</p>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+      </div>
     </section>
 
-    <!-- SLIDE 5: INTRODUCTION (Hero Carousel) -->
+    <!-- SLIDE 5: INTRODUCTION -->
     <section class="slide slide-introduction" data-chapter="introduction">
       <div class="slide-inner">
         <div class="intro-hero">
           <div class="intro-hero-collage">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Préparation">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Accompagnement">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="Analyse">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="Coordination">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Préparation">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Accompagnement">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="Analyse">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="Coordination">
+            <!-- First set -->
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Pr&eacute;paration au contr&ocirc;le">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="&Eacute;tudes financi&egrave;res">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="Coordination juridique">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Accompagnement URSSAF">
+            <!-- Duplicate for seamless loop -->
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Pr&eacute;paration au contr&ocirc;le">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="&Eacute;tudes financi&egrave;res">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="Coordination juridique">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Accompagnement URSSAF">
           </div>
-          <div class="intro-hero-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
-          <div class="intro-title-band"><h1 class="intro-offer-title">Accompagnement contrôle URSSAF</h1></div>
+
+          <div class="intro-hero-logo">
+            <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+          </div>
+
+          <div class="intro-title-band">
+            <h2 class="intro-offer-title">Accompagnement contr&ocirc;le URSSAF</h2>
+          </div>
+
           <div class="intro-stats">
-            <div class="intro-stat-card"><div class="intro-stat-number">320+</div><div class="intro-stat-label">Contrôles accompagnés</div></div>
-            <div class="intro-stat-card"><div class="intro-stat-number">850+</div><div class="intro-stat-label">Entreprises accompagnées</div></div>
-            <div class="intro-stat-card"><div class="intro-stat-number">45 000 000</div><div class="intro-stat-label">EUR économies / an</div></div>
-            <div class="intro-stat-card"><div class="intro-stat-number">89%</div><div class="intro-stat-label">Recommandation client</div></div>
+            <div class="intro-stat-card">
+              <div class="intro-stat-number">320+</div>
+              <div class="intro-stat-label">Contr&ocirc;les accompagn&eacute;s</div>
+            </div>
+            <div class="intro-stat-card">
+              <div class="intro-stat-number">850+</div>
+              <div class="intro-stat-label">Entreprises accompagn&eacute;es</div>
+            </div>
+            <div class="intro-stat-card">
+              <div class="intro-stat-number">45M&euro;</div>
+              <div class="intro-stat-label">&Eacute;conomies annuelles</div>
+            </div>
           </div>
         </div>
+
         <div class="intro-content">
-          <p class="intro-pitch">Nous préparons vos équipes, vous accompagnons face à l'inspecteur et contestons les observations pour réduire le montant du redressement. Avant, pendant et après le contrôle.</p>
+          <p class="intro-pitch">Nous accompagnons les entreprises avant, pendant et apr&egrave;s le contr&ocirc;le URSSAF. Avec une vision transversale paie, comptable et CSE, nous pr&eacute;parons vos &eacute;quipes, vous accompagnons face &agrave; l'inspecteur et contestons les observations pour r&eacute;duire le montant du redressement.</p>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 6: VALEUR OVERVIEW (4 Attributs, 2x2) -->
+    <!-- SLIDE 6: VALUE OVERVIEW -->
     <section class="slide" data-chapter="valeur">
       <div class="slide-inner">
         <h1 class="slide-title">Ce qu'Ayming vous apporte</h1>
+
         <div class="feature-grid-4">
+          <!-- Theme 1 -->
           <div class="feature-item">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+            <div class="feature-icon">
+              <i data-lucide="book-open"></i>
+            </div>
             <div class="feature-content">
-              <h4>Formation et préparation des équipes en amont du contrôle</h4>
-              <p>Réduction du nombre de chefs de redressement par correction préalable des erreurs identifiées</p>
+              <h4>Formation et pr&eacute;paration des &eacute;quipes en amont du contr&ocirc;le</h4>
+              <p>R&eacute;duction du nombre de chefs de redressement par correction pr&eacute;alable des erreurs identifi&eacute;es.</p>
             </div>
           </div>
+
+          <!-- Theme 2 -->
           <div class="feature-item">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="feature-icon">
+              <i data-lucide="users"></i>
+            </div>
             <div class="feature-content">
-              <h4>Accompagnement des équipes pendant le contrôle</h4>
-              <p>Maîtrise du périmètre contrôlé et des documents communiqués. Réponses stratégiques, pas improvisées</p>
+              <h4>Accompagnement des &eacute;quipes pendant le contr&ocirc;le</h4>
+              <p>Ma&icirc;trise du p&eacute;rim&egrave;tre contr&ocirc;l&eacute; et des documents communiqu&eacute;s. R&eacute;ponses strat&eacute;giques, pas improvis&eacute;es.</p>
             </div>
           </div>
+
+          <!-- Theme 3 -->
           <div class="feature-item">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+            <div class="feature-icon">
+              <i data-lucide="file-text"></i>
+            </div>
             <div class="feature-content">
-              <h4>Études financières des observations et redressements</h4>
-              <p>Économies directes sur le redressement grâce à une contestation méthodique et argumentée</p>
+              <h4>&Eacute;tudes financi&egrave;res des observations et redressements</h4>
+              <p>&Eacute;conomies directes sur le redressement gr&acirc;ce &agrave; une contestation m&eacute;thodique et argument&eacute;e.</p>
             </div>
           </div>
+
+          <!-- Theme 4 -->
           <div class="feature-item">
-            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"/></svg></div>
+            <div class="feature-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
             <div class="feature-content">
-              <h4>Plan d'action correctif post-contrôle</h4>
-              <p>Réduction des chefs de redressement au prochain contrôle grâce à un plan d'action structuré</p>
+              <h4>Plan d'action correctif post-contr&ocirc;le</h4>
+              <p>R&eacute;duction des chefs de redressement au prochain contr&ocirc;le gr&acirc;ce &agrave; un plan d'action structur&eacute;.</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Logo">
+      </div>
     </section>
 
-    <!-- SLIDE 7: VALUE DETAIL 1 - Formation et préparation -->
+    <!-- SLIDE 7: VALUE DETAIL 1 -->
     <section class="slide" data-chapter="valeur-1">
       <div class="value-detail-layout">
         <div class="value-detail-content">
-          <h2>Formation et préparation des équipes en amont du contrôle</h2>
+          <h2>Formation et pr&eacute;paration des &eacute;quipes en amont du contr&ocirc;le</h2>
+
           <ul class="value-detail-list">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Formation opérationnelle sur les méthodes de contrôle et points de vigilance</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Pré-contrôle pour identifier et corriger les zones de risque</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Cartographie des chefs de redressement les plus fréquents (Fillon, avantages en nature, frais pro)</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Activation du droit à l'erreur (loi ESSOC) pour régulariser sans sanction</li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Formation op&eacute;rationnelle des &eacute;quipes paie sur les m&eacute;thodes de contr&ocirc;le et points de vigilance
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Pr&eacute;-contr&ocirc;le pour identifier et corriger les zones de risque avant le passage de l'inspecteur
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Cartographie des chefs de redressement les plus fr&eacute;quents (Fillon, avantages en nature, frais pro)
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Activation du droit &agrave; l'erreur (loi ESSOC) pour r&eacute;gulariser sans sanction
+            </li>
           </ul>
         </div>
-        <div class="value-detail-visual"><div class="value-image-container"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Préparation au contrôle"></div></div>
+        <div class="value-detail-visual">
+          <div class="value-image-container">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Formation et pr&eacute;paration des &eacute;quipes">
+          </div>
+        </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 8: VALUE DETAIL 2 - Accompagnement pendant -->
+    <!-- SLIDE 8: VALUE DETAIL 2 -->
     <section class="slide" data-chapter="valeur-2">
       <div class="value-detail-layout">
         <div class="value-detail-content">
-          <h2>Accompagnement des équipes pendant le contrôle</h2>
+          <h2>Accompagnement des &eacute;quipes pendant le contr&ocirc;le</h2>
+
           <ul class="value-detail-list">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Préparation et constitution des échantillons pour l'inspecteur</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Réponses stratégiques aux demandes (pas de réponses improvisées)</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Présence aux côtés de l'équipe pour faire valoir les droits de l'employeur</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Coordination des échanges pour éviter les erreurs de communication</li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Pr&eacute;paration et constitution des &eacute;chantillons pour l'inspecteur
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              R&eacute;ponses strat&eacute;giques aux demandes, pas de r&eacute;ponses improvis&eacute;es
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Pr&eacute;sence aux c&ocirc;t&eacute;s de l'&eacute;quipe pour faire valoir les droits de l'employeur
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Coordination des &eacute;changes pour &eacute;viter les erreurs de communication
+            </li>
           </ul>
         </div>
-        <div class="value-detail-visual"><div class="value-image-container"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-1.jpg" alt="Accompagnement pendant le contrôle"></div></div>
+        <div class="value-detail-visual">
+          <div class="value-image-container">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="Accompagnement pendant le contr&ocirc;le">
+          </div>
+        </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 9: VALUE DETAIL 3 - Études financières -->
+    <!-- SLIDE 9: VALUE DETAIL 3 -->
     <section class="slide" data-chapter="valeur-3">
       <div class="value-detail-layout">
         <div class="value-detail-content">
-          <h2>Études financières des observations et redressements</h2>
+          <h2>&Eacute;tudes financi&egrave;res des observations et redressements</h2>
+
           <ul class="value-detail-list">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Analyse détaillée de chaque chef de redressement dans la lettre d'observations</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Réponse argumentée rédigée dans le délai de 30 jours</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Coordination avec un cabinet d'avocats indépendants choisi d'un commun accord</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Suivi administratif des dossiers jusqu'à la décision finale</li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Analyse d&eacute;taill&eacute;e de chaque chef de redressement dans la lettre d'observations
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              R&eacute;ponse argument&eacute;e r&eacute;dig&eacute;e dans le d&eacute;lai de 30 jours
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Coordination avec un cabinet d'avocats ind&eacute;pendants choisi d'un commun accord
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Suivi administratif des dossiers jusqu'&agrave; la d&eacute;cision finale
+            </li>
           </ul>
         </div>
-        <div class="value-detail-visual"><div class="value-image-container"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-2.jpg" alt="Études financières"></div></div>
+        <div class="value-detail-visual">
+          <div class="value-image-container">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="&Eacute;tudes financi&egrave;res et contestation">
+          </div>
+        </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 10: VALUE DETAIL 4 - Plan d'action correctif -->
+    <!-- SLIDE 10: VALUE DETAIL 4 -->
     <section class="slide" data-chapter="valeur-4">
       <div class="value-detail-layout">
         <div class="value-detail-content">
-          <h2>Plan d'action correctif post-contrôle</h2>
+          <h2>Plan d'action correctif post-contr&ocirc;le</h2>
+
           <ul class="value-detail-list">
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Identification des corrections à apporter pour éviter la récurrence</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Recommandations de mise en conformité sur les sujets identifiés</li>
-            <li><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>Sensibilisation des équipes aux bonnes pratiques</li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Identification des corrections &agrave; apporter pour &eacute;viter la r&eacute;currence au prochain contr&ocirc;le
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Recommandations de mise en conformit&eacute; sur les sujets identifi&eacute;s
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              Sensibilisation des &eacute;quipes aux bonnes pratiques
+            </li>
           </ul>
         </div>
-        <div class="value-detail-visual"><div class="value-image-container"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff-3.jpg" alt="Plan d'action correctif"></div></div>
+        <div class="value-detail-visual">
+          <div class="value-image-container">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/11/ursaff.jpg" alt="Plan d'action correctif">
+          </div>
+        </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 11: PREUVES (1 testimonial, split layout) -->
+    <!-- SLIDE 11: PREUVES -->
     <section class="slide" data-chapter="preuves">
       <div class="slide-inner">
         <h1 class="slide-title">Ils nous font confiance</h1>
+
         <div class="testimonial-split">
           <div class="testimonial-split-content">
             <div class="testimonial-split-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testimonial-split-quote">L'accompagnement a été réactif et adapté, avec une forte mobilisation de l'équipe, y compris sur des périodes sensibles comme entre Noël et le Nouvel An.</p>
+            <p class="testimonial-split-quote">L'accompagnement a &eacute;t&eacute; r&eacute;actif et adapt&eacute;, avec une forte mobilisation de l'&eacute;quipe, y compris sur des p&eacute;riodes sensibles comme entre No&euml;l et le Nouvel An.</p>
             <div>
               <span class="testimonial-split-name">Ella Cilia</span>
-              <p class="testimonial-split-position">DRH Adjointe, ANRAS (83 établissements, 2 773 professionnels)</p>
+              <p class="testimonial-split-position">DRH Adjointe, ANRAS (83 &eacute;tablissements, 2 773 professionnels)</p>
               <img class="testimonial-split-logo" src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/10/Anras-logo-2-300x75-1.jpg" alt="ANRAS">
             </div>
-            <a class="testimonial-split-cta" href="https://www.ayming.fr/temoignages-clients/lanras-securiser-ses-pratiques-paie/?utm_source=slides-sales&utm_medium=print&utm_campaign=controle-urssaf" target="_blank">Lire la suite</a>
+            <a class="testimonial-split-cta" href="https://www.ayming.fr/temoignages-clients/lanras-securiser-ses-pratiques-paie/?utm_source=slides-sales&utm_medium=print&utm_campaign=controle-urssaf&utm_content=testimonial" target="_blank">Lire la suite</a>
           </div>
           <div class="testimonial-split-image">
-            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/10/ANRAS-1436-x-808.jpg" alt="ANRAS sécurise ses pratiques paie">
+            <img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/10/ANRAS-1436-x-808.jpg" alt="ANRAS s&eacute;curise ses pratiques paie">
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 12: IMPLANTATION FRANCE -->
+    <!-- SLIDE 12: ANCRAGE FRANCE -->
     <section class="slide" data-chapter="implantation">
       <div class="slide-inner">
         <div class="ancrage-layout">
@@ -713,124 +2154,161 @@
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 13: IMPLANTATION INTERNATIONAL -->
+    <!-- SLIDE 13: INTERNATIONAL -->
     <section class="slide" data-chapter="implantation">
       <div class="slide-inner">
         <h1 class="slide-title">
           ... avec des bureaux dans <strong>14 pays</strong> pour une proximit&eacute; accrue<br>
           avec nos clients et leur &eacute;cosyst&egrave;me
         </h1>
+
         <div class="implantation-container">
           <img src="https://ayming-france.github.io/assets/maps/na-map.svg" alt="Am&eacute;rique du Nord" class="implantation-na"/>
           <img src="https://ayming-france.github.io/assets/maps/eu-map.svg" alt="Europe" class="implantation-eu"/>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 14: QUESTIONS (4 FAQ cards) -->
+    <!-- SLIDE 14: QUESTIONS -->
     <section class="slide" data-chapter="questions">
       <div class="slide-inner">
         <h1 class="slide-title">Questions qu'on nous pose</h1>
+
         <div class="faq-grid">
+          <!-- FAQ 1 -->
           <div class="faq-card">
             <h4>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              On a toujours géré nos contrôles nous-mêmes
+              <i data-lucide="briefcase"></i>
+              On a toujours g&eacute;r&eacute; nos contr&ocirc;les nous-m&ecirc;mes
             </h4>
-            <p>S'en sortir ne veut pas dire payer le juste montant. Plus de 9 contrôles sur 10 aboutissent à un redressement. La question est combien vous avez payé de trop sans contester.</p>
+            <p>S'en sortir ne veut pas dire payer le juste montant. Plus de 9 contr&ocirc;les sur 10 aboutissent &agrave; un redressement. La question est combien vous avez pay&eacute; de trop sans contester. Avec des redressements en hausse de 34% en 2024, les enjeux financiers augmentent.</p>
           </div>
+
+          <!-- FAQ 2 -->
           <div class="faq-card">
             <h4>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-              Notre expert-comptable nous aide déjà
+              <i data-lucide="building-2"></i>
+              Notre expert-comptable nous aide d&eacute;j&agrave;
             </h4>
-            <p>L'expert-comptable a une vision comptable, pas paie. Les premiers chefs de redressement sont des sujets paie qu'il ne couvre pas.</p>
+            <p>L'expert-comptable a une vision comptable. Mais les premiers chefs de redressement (r&eacute;duction Fillon, avantages en nature, frais pro) sont des sujets paie. Les 3 cat&eacute;gories de chefs de redressement sont paie, comptable et CSE. L'expert-comptable n'en couvre qu'une.</p>
           </div>
+
+          <!-- FAQ 3 -->
           <div class="faq-card">
             <h4>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <i data-lucide="eye"></i>
               L'accompagnement va attirer l'attention
             </h4>
-            <p>Au contraire. Les inspecteurs connaissent les cabinets spécialisés et perçoivent leur présence comme un signe de professionnalisme.</p>
+            <p>Au contraire. Les inspecteurs connaissent les cabinets sp&eacute;cialis&eacute;s et per&ccedil;oivent leur pr&eacute;sence comme un signe de professionnalisme. L'accompagnement structure les &eacute;changes et &eacute;vite les erreurs de communication.</p>
           </div>
+
+          <!-- FAQ 4 -->
           <div class="faq-card">
             <h4>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              L'avis est déjà là, est-ce trop tard ?
+              <i data-lucide="clock"></i>
+              L'avis est d&eacute;j&agrave; l&agrave;, est-ce trop tard ?
             </h4>
-            <p>Nous intervenons à toutes les phases : avant le contrôle, pendant les opérations, après la lettre d'observations. Il n'est jamais trop tard.</p>
+            <p>Nous intervenons &agrave; toutes les phases : avant (pr&eacute;paration), pendant (accompagnement) et apr&egrave;s (contestation). Il n'est jamais trop tard. M&ecirc;me apr&egrave;s la lettre d'observations, vous avez 30 jours pour contester.</p>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 13: PROCESSUS (4 steps) -->
+    <!-- SLIDE 15: PROCESSUS -->
     <section class="slide" data-chapter="processus">
       <div class="slide-inner">
-        <h1 class="slide-title">Prochaine étape</h1>
-        <div class="process-timeline-4">
+        <h1 class="slide-title">Prochaine &eacute;tape</h1>
+
+        <div class="process-timeline">
+          <!-- Step 1 -->
           <div class="process-step">
             <div class="step-number">1</div>
-            <h3 class="step-title">Diagnostic préalable</h3>
-            <p class="step-duration">2 à 4 semaines</p>
-            <p class="step-description">Analyse de vos pratiques, identification des zones de risque, cartographie des chefs de redressement potentiels</p>
+            <div class="step-title">Diagnostic pr&eacute;alable</div>
+            <div class="step-duration">2 &agrave; 4 semaines</div>
+            <div class="step-description">Analyse de vos pratiques paie et comptables, identification des zones de risque, cartographie des chefs de redressement potentiels</div>
           </div>
+
           <span class="step-arrow">&rarr;</span>
+
+          <!-- Step 2 -->
           <div class="process-step">
             <div class="step-number">2</div>
-            <h3 class="step-title">Plan de préparation</h3>
-            <p class="step-duration">+1 à 2 semaines</p>
-            <p class="step-description">Formation des équipes, correction des erreurs identifiées, activation du droit à l'erreur si applicable</p>
+            <div class="step-title">Pr&eacute;paration et accompagnement</div>
+            <div class="step-duration">Dur&eacute;e du contr&ocirc;le</div>
+            <div class="step-description">Formation des &eacute;quipes, correction des erreurs identifi&eacute;es, pr&eacute;sence aux c&ocirc;t&eacute;s de l'&eacute;quipe, r&eacute;ponses strat&eacute;giques</div>
           </div>
+
           <span class="step-arrow">&rarr;</span>
+
+          <!-- Step 3 -->
           <div class="process-step">
             <div class="step-number">3</div>
-            <h3 class="step-title">Accompagnement</h3>
-            <p class="step-duration">Durée du contrôle</p>
-            <p class="step-description">Présence aux côtés de l'équipe, coordination des échanges, réponses stratégiques</p>
-          </div>
-          <span class="step-arrow">&rarr;</span>
-          <div class="process-step">
-            <div class="step-number">4</div>
-            <h3 class="step-title">Contestation</h3>
-            <p class="step-duration">30 jours</p>
-            <p class="step-description">Analyse de la lettre d'observations, réponse argumentée, plan correctif post-contrôle</p>
+            <div class="step-title">Contestation et plan correctif</div>
+            <div class="step-duration">R&eacute;sultats mesurables</div>
+            <div class="step-description">Analyse de la lettre d'observations, r&eacute;ponse argument&eacute;e dans les 30 jours, plan d'action correctif pour le prochain contr&ocirc;le</div>
           </div>
         </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
 
-    <!-- SLIDE 14: DÉMARRAGE (Requirements + CTA) -->
+    <!-- SLIDE 16: DEMARRAGE -->
     <section class="slide" data-chapter="demarrage">
       <div class="slide-inner">
         <h1 class="slide-title">Ce dont nous avons besoin</h1>
+
         <div class="requirements-box">
-          <h4>Pour démarrer le diagnostic</h4>
+          <h4>Pour d&eacute;marrer le diagnostic</h4>
           <ul>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span>Copie de l'avis de vérification (si reçu)</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span>Accès aux fichiers de paie des 3 derniers exercices</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span>Dernière lettre d'observations (si contrôle précédent)</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span>Entretien avec le responsable paie et le service comptable (2 heures)</li>
+            <li>
+              <span class="check-icon"><i data-lucide="check"></i></span>
+              Copie de l'avis de v&eacute;rification (si re&ccedil;u)
+            </li>
+            <li>
+              <span class="check-icon"><i data-lucide="check"></i></span>
+              Acc&egrave;s aux fichiers de paie des 3 derniers exercices
+            </li>
+            <li>
+              <span class="check-icon"><i data-lucide="check"></i></span>
+              Derni&egrave;re lettre d'observations (si contr&ocirc;le pr&eacute;c&eacute;dent)
+            </li>
+            <li>
+              <span class="check-icon"><i data-lucide="check"></i></span>
+              Entretien avec le responsable paie et le service comptable (2 heures)
+            </li>
           </ul>
         </div>
-        <div class="cta-box">
-          <p class="cta-text">Pré-contrôle de vos pratiques - Quand pouvons-nous planifier ?</p>
-        </div>
       </div>
-      <div class="company-logo"><img src="https://www.ayming.fr/wp-content/uploads/sites/3/2025/07/Ayming.png" alt="Ayming"></div>
+
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
     </section>
+
+    <!-- ========== END SLIDES ========== -->
 
   </main>
 
+  <!-- Keyboard Hint (clickable) -->
   <div class="keyboard-hint">
     <span><span class="key" id="key-prev">&larr;</span><span class="key" id="key-next">&rarr;</span> Naviguer</span>
-    <span><span class="key" id="key-fullscreen">F</span> Plein écran</span>
+    <span><span class="key" id="key-fullscreen">F</span> Plein &eacute;cran</span>
   </div>
 
   <script>
@@ -839,59 +2317,133 @@
     const navItems = document.querySelectorAll('.nav-item');
     const counter = document.querySelector('.slide-counter');
     const totalSlides = slides.length;
+
     const valueDetailStartIndex = 7;
     const valueDetailCount = 4;
 
     function updateSlide() {
       slides.forEach((slide, index) => {
         slide.classList.remove('active');
-        if (index === currentSlide) slide.classList.add('active');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        }
       });
+
       navItems.forEach((item) => {
         item.classList.remove('active');
         const navSlideIndex = parseInt(item.dataset.slide);
-        const isValueDetailSlide = currentSlide >= valueDetailStartIndex && currentSlide < valueDetailStartIndex + valueDetailCount;
-        if (navSlideIndex === currentSlide || (isValueDetailSlide && navSlideIndex === 6)) item.classList.add('active');
+
+        const isValueDetailSlide = currentSlide >= valueDetailStartIndex &&
+                                   currentSlide < valueDetailStartIndex + valueDetailCount;
+
+        if (navSlideIndex === currentSlide ||
+            (isValueDetailSlide && navSlideIndex === 6)) {
+          item.classList.add('active');
+        }
       });
+
       counter.innerHTML = `<span class="current">${currentSlide + 1}</span>/${totalSlides}`;
+
+      const introSlide = document.querySelector('.slide-introduction');
+      if (introSlide && slides[currentSlide] === introSlide) {
+        setTimeout(animateIntroCounters, 500);
+      }
     }
 
-    function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateSlide(); } }
-    function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlide(); } }
-    function goToSlide(index) { if (index >= 0 && index < totalSlides) { currentSlide = index; updateSlide(); } }
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentSlide = index;
+        updateSlide();
+      }
+    }
+
+    function getSlideFromNav(navIndex) {
+      return navIndex;
+    }
 
     document.addEventListener('keydown', (e) => {
       switch(e.key) {
-        case 'ArrowRight': case ' ': e.preventDefault(); nextSlide(); break;
-        case 'ArrowLeft': prevSlide(); break;
-        case 'f': case 'F': toggleFullscreen(); break;
-        case 'Home': goToSlide(0); break;
-        case 'End': goToSlide(totalSlides - 1); break;
+        case 'ArrowRight':
+        case ' ':
+          e.preventDefault();
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+          prevSlide();
+          break;
+        case 'f':
+        case 'F':
+          toggleFullscreen();
+          break;
+        case 'Home':
+          goToSlide(0);
+          break;
+        case 'End':
+          goToSlide(totalSlides - 1);
+          break;
       }
     });
 
-    navItems.forEach((item) => { item.addEventListener('click', () => goToSlide(parseInt(item.dataset.slide))); });
+    navItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const navIndex = parseInt(item.dataset.slide);
+        const slideIndex = getSlideFromNav(navIndex);
+        goToSlide(slideIndex);
+      });
+    });
+
     document.getElementById('key-prev').addEventListener('click', prevSlide);
     document.getElementById('key-next').addEventListener('click', nextSlide);
     document.getElementById('key-fullscreen').addEventListener('click', toggleFullscreen);
 
     function toggleFullscreen() {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-      else document.exitFullscreen();
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
     }
 
-    let touchStartX = 0, touchEndX = 0;
-    document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
-    document.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); });
-    function handleSwipe() { const diff = touchStartX - touchEndX; if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); } }
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-    updateSlide();
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
 
-    // ===== NUMBER COUNTER ANIMATION =====
-    const introductionSlideIndex = 5;
-    let countersAnimated = false;
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
 
-    function animateCounters() {
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }
+
+    function animateIntroCounters() {
       const statNumbers = document.querySelectorAll('.slide-introduction.active .intro-stat-number');
       statNumbers.forEach(el => {
         const text = el.textContent;
@@ -916,16 +2468,11 @@
       requestAnimationFrame(update);
     }
 
-    function checkCounterAnimation() {
-      if (currentSlide === introductionSlideIndex && !countersAnimated) {
-        setTimeout(() => { animateCounters(); countersAnimated = true; }, 600);
-      }
-      if (currentSlide !== introductionSlideIndex) countersAnimated = false;
-    }
-
-    const originalUpdateSlide = updateSlide;
-    updateSlide = function() { originalUpdateSlide(); checkCounterAnimation(); };
+    updateSlide();
   </script>
 
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
